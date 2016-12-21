@@ -1,0 +1,18 @@
+<div class="container about">
+  <div class="jumbotron">
+    <h1>SPOTIFY</h1>
+    <div class="form-group">
+      <input class="form-control" type="text" name="name" ng-model="query" ng-change="searchTrack()" ng-model-options="{'updateOn': 'keyup'}">
+      <hr>
+      <div class="list-group">
+        <div class="list-group-item" ng-repeat="song in tracks track by $index">
+          <img class="pull-xs-left" ng-src="{{song.album.images[2].url}}" alt="" />
+          <span ng-bind="song.name"></span> - <span ng-bind="song.album.name"></span>
+          <button class="btn btn-primary btn-sm pull-xs-right" type="button" name="button" ng-click="playTrackPreview(song.preview_url, song.id)">
+            <span ng-bind="currentPlaying !== song.id ? 'Play Preview':'Pause Preview'"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
